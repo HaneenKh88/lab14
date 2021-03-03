@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/style.css">
+   
+</head>
+<body>
+    <% BooksList.forEach(element => {  %> 
+        <div class="div">
+            <img src="<%= element.imgUrl %> " alt="">
+            <h1><%= element.title %> </h1>
+            <h3> <%= element.author  %> </h3>
+            <h4><%= element.isbn  %> </h4>
+            <p><%= element.description  %> </p>
+            <form action="/addbooks" method="POST">
+                <input type="hidden" name="title" value="<%= element.title %>">
+                <input type="hidden" name="author" value="<%= element.author %>">
+                <input type="hidden" name="isbn" value="<%= element.isbn %>">
+                <input type="hidden" name="image_url" value="<%= element.imgUrl %>">
+                <input type="hidden" name="description" value="<%= element.description %>">
+                <button type="submit" id="submit"> Add To My BookShelf </button>
+            </form>
+        </div>
+  <%   });  %> 
+</body>
+</html>

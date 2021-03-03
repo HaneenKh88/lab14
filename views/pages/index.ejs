@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <h1>Books Library</h1>
+
+    <ul>
+        <li> <a href="/">Home</a></li>
+        <li> <a href="/searches/new">Search By Title or Author </a></li>
+    </ul>
+
+    
+
+    <section>
+        <% let count = 0; %>
+        <% booklist.forEach(element =>{ %>
+            <%count++;%>  
+            
+        <div>
+            <img src="<%= element.image_url %>" alt="">
+            <h2><%= element.title %> </h2>
+            <h2><%= element.author %></h2>
+            <h4><%= element.isbn  %> </h4>
+            <p><%= element.description %></p>
+            <form action="/books/<%= element.id%>" method="GET" >
+                <button id="btn" type="submit"> View Details </button>
+            </form>
+        </div>
+   <% }) %>
+    </section>
+
+    <h3><%= count%> Books in the Collection</h3>
+</body>
+</html>
